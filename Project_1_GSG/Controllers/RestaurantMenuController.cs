@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using CsvHelper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project_1_GSG.Models;
+using Project_1_GSG.ModelView;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 
 namespace Project_1_GSG.Controllers
@@ -12,6 +17,7 @@ namespace Project_1_GSG.Controllers
     public class RestaurantMenuController : ControllerBase
     {
             private restaurantdbContext _restaurantdbContext;
+            private IMapper _mapper;
             public RestaurantMenuController(restaurantdbContext restaurantdbContext)
             {
                 _restaurantdbContext = restaurantdbContext;
@@ -42,9 +48,18 @@ namespace Project_1_GSG.Controllers
             [HttpGet]
             public IActionResult Get()
             {
-                
-                var res = _restaurantdbContext.Restaurantmenus.ToList();
-                return Ok();
+            var viewRes = _restaurantdbContext.CsvViews.ToList();
+
+            var modelView = _mapper.Map<List<CsvModelView>>(viewRes);
+
+            var res = _restaurantdbContext.Restaurantmenus.ToList();
+
+            using (var writer = new StreamWriter("E:\\ASP.net GSG\\Part_2 Projects\\QuizProject_1_GSG\\ItemsDB.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(modelView);
+            }
+            return Ok();
             }
             
             [HttpGet("{id}")]

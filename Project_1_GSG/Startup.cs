@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Project_1_GSG.Mapper;
 using Project_1_GSG.Models;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,15 @@ namespace Project_1_GSG
 {
     public class Startup
     {
+        private MapperConfiguration _mapperConfiguration;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            _mapperConfiguration = new MapperConfiguration(a =>
+            {
+                a.AddProfile(new Mapping());
+            });
         }
 
         public IConfiguration Configuration { get; }

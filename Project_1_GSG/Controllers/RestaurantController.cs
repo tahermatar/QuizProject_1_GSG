@@ -44,16 +44,17 @@ namespace Project_1_GSG.Controllers
         public IActionResult Get()
         {
             var viewRes = _restaurantdbContext.CsvViews.ToList();
+            //private IMapper _mapper;
 
             //var modelView = _mapper.Map<List<CsvModelView>>(viewRes);
 
             var res = _restaurantdbContext.Restaurants.ToList();
 
-            using (var writer = new StreamWriter("E:\\ASP.net GSG\\Part_2 Projects\\QuizProject_1_GSG\\ItemsDB.csv"))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csv.WriteRecords(viewRes);
-            }
+            //using (var writer = new StreamWriter("E:\\ASP.net GSG\\Part_2 Projects\\QuizProject_1_GSG\\ItemsDB.csv"))
+            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            //{
+            //    csv.WriteRecords(_mapper);
+            //}
             return Ok();
         }
 
