@@ -48,7 +48,6 @@ namespace Project_1_GSG.Controllers
         public IActionResult Get(int Id)
         {
             var customer = _restaurantdbContext.Customers.Find(Id);
-
             return Ok(customer);
         }
         [HttpPut("{id}")]

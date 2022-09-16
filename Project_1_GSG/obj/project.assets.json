@@ -2262,11 +2262,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ASP.net GSG\\Part_2 Projects\\Real_Project\\Project_1_GSG\\Project_1_GSG.csproj",
+      "projectUniqueName": "C:\\Users\\Almajd-PC\\Source\\Repos\\QuizProject_1_GSG\\Project_1_GSG\\Project_1_GSG.csproj",
       "projectName": "Project_1_GSG",
-      "projectPath": "E:\\ASP.net GSG\\Part_2 Projects\\Real_Project\\Project_1_GSG\\Project_1_GSG.csproj",
+      "projectPath": "C:\\Users\\Almajd-PC\\Source\\Repos\\QuizProject_1_GSG\\Project_1_GSG\\Project_1_GSG.csproj",
       "packagesPath": "C:\\Users\\Almajd-PC\\.nuget\\packages\\",
-      "outputPath": "E:\\ASP.net GSG\\Part_2 Projects\\Real_Project\\Project_1_GSG\\obj\\",
+      "outputPath": "C:\\Users\\Almajd-PC\\Source\\Repos\\QuizProject_1_GSG\\Project_1_GSG\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Almajd-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
