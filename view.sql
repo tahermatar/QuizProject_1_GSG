@@ -10,5 +10,6 @@ count(DISTINCT c.Id) as NumberOfOrderCustomer
 from restaurantdb.order o
 join restaurantdb.customer c on o.CustomerId = c.Id
 join restaurantdb.restaurantmenu rm on rm.Id = o.ResturantMenuId
-join restaurantdb.restaurant r on r.Id = rm.restaurantId;
+join restaurantdb.restaurant r on r.Id = rm.restaurantId
+group by RestaurantId;
 
