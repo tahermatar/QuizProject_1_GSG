@@ -11,7 +11,9 @@ join restaurantdb.customer c on o.CustomerId = c.Id
 join restaurantdb.restaurantmenu rm on rm.Id = o.ResturantMenuId
 join restaurantdb.restaurant r on r.Id = rm.restaurantId
 
-group by RestaurantId;CREATE TABLE `customer` (
+group by RestaurantId;
+
+CREATE TABLE `customer` (
   `Id` int unsigned NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(255) NOT NULL DEFAULT '',
   `LastName` varchar(255) NOT NULL DEFAULT '',
@@ -21,6 +23,8 @@ group by RestaurantId;CREATE TABLE `customer` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Id_UNIQUE` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 CREATE TABLE `order` (
   `ResturantMenuId` int unsigned NOT NULL,
   `CustomerId` int unsigned NOT NULL,
@@ -37,6 +41,8 @@ CREATE TABLE `order` (
   CONSTRAINT `Order_Customer` FOREIGN KEY (`CustomerId`) REFERENCES `customer` (`Id`),
   CONSTRAINT `Order_ResurantMenue` FOREIGN KEY (`ResturantMenuId`) REFERENCES `restaurantmenu` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 CREATE TABLE `restaurant` (
   `Id` int unsigned NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) NOT NULL DEFAULT '',
@@ -47,6 +53,8 @@ CREATE TABLE `restaurant` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Id_UNIQUE` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 CREATE TABLE `restaurantmenu` (
   `Id` int unsigned NOT NULL AUTO_INCREMENT,
   `MealName` varchar(255) NOT NULL DEFAULT '',
